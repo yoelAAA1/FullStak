@@ -1,0 +1,8 @@
+# Dependencias instaladas por npm (se regeneran con "npm install")
+node_modules/
+
+# Variables de entorno con contraseñas: nunca a GitHub
+.env
+
+# Cliente de Prisma generado (se regenera con "npx prisma generate")
+/generated/prisma

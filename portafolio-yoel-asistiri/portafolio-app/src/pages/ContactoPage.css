@@ -1,0 +1,25 @@
+/* src/pages/ContactoPage.css */
+
+/* Una columna en celular; desde 768px, datos a la izquierda (1/3) y formulario (2/3) */
+.contacto { display: grid; gap: 2rem; }
+@media (min-width: 768px) {
+  .contacto { grid-template-columns: 1fr 2fr; align-items: start; }
+}
+
+.contacto__datos { display: grid; gap: 0.75rem; }
+
+.dato {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-secondary);
+}
+
+.dato__icono { color: var(--accent); flex-shrink: 0; }  /* el ícono no se encoge */
+.dato__titulo { font-size: 0.875rem; font-weight: 600; }
+.dato__texto { color: var(--text-secondary); font-size: 0.875rem; }
+
+.contacto__formulario { padding: 1.5rem; }

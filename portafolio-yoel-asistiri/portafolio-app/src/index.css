@@ -1,0 +1,191 @@
+/* de la sesión 3   */
+:root {
+  /* Colores de fondo */
+  --bg-primary: #b2d2f0; /* fondo general  que se ve en todda la pnatalla sin envago si que se puede cambiar por separdo pero no se ve tan bine*/
+  --bg-secondary: #0b4aaf7a; /* tarjetas  de todas las pestañas includo el circulo de  nom*/
+  --bg-tertiary: #2509c2; /* este es da un degrado a donde esta las tajetas este si me pasre util si es que no se pone imgs */
+  --bg-hover: #f4f4f4; /* camia el col al pasar el mause en pestañas de arriba y tambien afecta los div que etsan abajo de la targetas   */
+
+  --text-primary: #0c2f5a; /* define el color de titulos solo eos*/
+  --text-secondary: #254576; /*tex sec*/
+  --text-muted: #ece7e3; /* solo definie colores en inicios para un texto determinado*/
+  /* Color de marca (cámbialo y cambia todo el sitio) */
+  --accent: #01003b; /*cania la letra de mi nombre y algunos inconos*/
+  --accent-hover: #0e68cf; /*solo sirve pra al colo caolocar el cursor ensima de ver proyectos o contacto 
+  --accent-light: #2f3151; /*eeste es el colo de los divs de dispnible  y de como parpdea el nombre YA esto solo el para mi in*/
+  --accent-2: #1d3469; /*este esl degrado de mi nombre que etsa al inicip cabe aclarar que para mi no es tan sesario */
+  /* Bordes y estados */
+  --border: #083976;
+  --danger: #dc2626;
+  --danger-hover: #b91c1c;
+  --danger-light: #fef2f2;
+  --success: #09ad7c;
+  --success-light: #f0fdf4;
+  --star: #09c4e5;
+
+  /* Formas */
+  --radius: 16px;
+  --radius-sm: 8px;
+  --card-shadow:
+    0 4px 24px -4px rgba(99, 102, 241, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Tipografía y ancho máximo del contenido */
+  --font-body: system-ui, "Segoe UI", Roboto, sans-serif;
+  --container: 72rem;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0; /* quita márgenes por defecto del navegador */
+  padding: 0;
+  box-sizing: border-box; /* el ancho incluye padding y borde */
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+} /* imágenes que no se salen de su caja */
+ul {
+  list-style: none;
+} /* listas sin viñetas */
+a {
+  color: inherit;
+  text-decoration: none;
+} /* enlaces sin subrayado ni azul */
+
+/* Los controles de formulario no heredan la fuente por defecto: se la forzamos */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+/* Anillo de foco visible al navegar con el teclado (accesibilidad) */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Ancho máximo centrado */
+.contenedor {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto; /* centra horizontalmente */
+  padding-inline: 1rem;
+}
+
+/* Texto con degradado (logo y nombre del hero) */
+.texto-gradiente {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text; /* recorta el fondo con la forma del texto */
+  background-clip: text;
+  color: transparent; /* deja ver el degradado */
+}
+
+/* Grilla de tarjetas: tantas columnas de mínimo 18rem como entren (sin media queries) */
+.grid-tarjetas {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
+}
+
+/* Caja blanca con borde y sombra */
+.tarjeta {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+}
+
+/* Título + subtítulo al inicio de cada página */
+.encabezado-pagina {
+  display: grid;
+  gap: 0.9rem;
+  margin-bottom: 2rem;
+}
+.encabezado-pagina h1 {
+  font-size: 1.875rem;
+  font-weight: 800;
+}
+.encabezado-pagina p {
+  color: var(--text-secondary);
+}
+
+/* Secciones de la portada */
+.seccion {
+  display: grid;
+  gap: 1.5rem;
+}
+.seccion__titulo {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.texto-suave {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.enlace {
+  color: var(--accent);
+}
+.enlace:hover {
+  text-decoration: underline;
+}
+
+/* Fila de etiquetas que salta de línea si no entra */
+.lista-etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+/* Estrella de "destacado": fill pinta el interior del ícono SVG */
+.icono-destacado {
+  color: var(--star);
+  fill: var(--star);
+  flex-shrink: 0;
+}
+
+/* Mensajes de error y de éxito */
+.alerta {
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+}
+.alerta--error {
+  background: var(--danger-light);
+  color: var(--danger);
+  border: 1px solid #fecaca;
+}
+.alerta--ok {
+  background: var(--success-light);
+  color: var(--success);
+}
+
+/* Checkbox y range con el color de la marca */
+input[type="checkbox"],
+input[type="range"] {
+  accent-color: var(--accent);
+}
+
+/* Checkbox con su texto al lado */
+.casilla {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+}

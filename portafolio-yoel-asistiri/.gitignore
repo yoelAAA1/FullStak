@@ -1,0 +1,10 @@
+   # Librerías: se reinstalan con "npm install"
+   node_modules/
+
+   # Contraseñas y configuración local: NUNCA a GitHub
+   .env
+
+   # Archivos compilados
+   dist/
+
+      .env

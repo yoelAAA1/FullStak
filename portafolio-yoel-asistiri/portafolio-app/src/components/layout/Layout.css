@@ -1,0 +1,71 @@
+/* src/components/layout/Layout.css — estructura general, navbar y footer */
+
+/* Columna de alto completo: el footer queda abajo aunque haya poco contenido */
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;             /* al menos el alto de la ventana */
+}
+
+.layout__main {
+  flex: 1;                       /* ocupa todo el espacio sobrante → empuja el footer abajo */
+  padding-block: 2.5rem;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  position: sticky;              /* se queda pegada arriba al hacer scroll */
+  top: 0;
+  z-index: 40;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);    /* efecto "vidrio" de la sesión 2 */
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar__contenido {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between; /* logo a la izquierda, menú a la derecha */
+  gap: 0.5rem;
+  padding-block: 0.75rem;
+}
+
+.navbar__logo { font-size: 1.125rem; font-weight: 800; }
+
+.navbar__menu { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+
+.navbar__enlace {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+.navbar__enlace:hover { background: var(--bg-hover); }
+
+/* NavLink agrega la clase "active" al enlace de la página actual */
+.navbar__enlace.active { background: var(--accent); color: #fff; }
+
+/* ---------- Footer ---------- */
+.footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+}
+
+.footer__contenido {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding-block: 1.5rem;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.footer__stack { font-size: 0.75rem; }

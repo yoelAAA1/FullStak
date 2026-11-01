@@ -1,0 +1,23 @@
+<!doctype html>
+<!-- index.html — la ÚNICA página HTML de la app. React dibuja todo dentro de <div id="root"> -->
+<html lang="es">
+  <head>
+    <!-- Codificación para que se vean bien las tildes, la ñ y los emojis -->
+    <meta charset="UTF-8" />
+    <!-- Ícono de la pestaña (archivo public/favicon.svg que crea Vite) -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Hace que la página se adapte al ancho del celular -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Descripción para Google (SEO) -->
+    <meta name="description" content="Portafolio de Yoel Americo Agner Asistiri, Desarrollador Full Stack." />
+    <meta name="author" content="Yoel Americo Agner Asistiri" />
+    <!-- Título de la pestaña del navegador -->
+    <title>Yoel Asistiri – Desarrollador Full Stack</title>
+  </head>
+  <body>
+    <!-- Aquí "monta" React toda la aplicación (ver src/main.tsx) -->
+    <div id="root"></div>
+    <!-- Vite carga el punto de entrada como módulo -->
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

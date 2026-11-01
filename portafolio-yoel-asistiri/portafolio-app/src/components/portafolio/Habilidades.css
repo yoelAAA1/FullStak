@@ -1,0 +1,27 @@
+/* src/components/portafolio/Habilidades.css — tarjetas de habilidades por área */
+.habilidades {
+  display: grid;
+  gap: 1.5rem;
+  /* tantas columnas de mínimo 15rem como entren */
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
+}
+
+.habilidad {
+  display: grid;
+  align-content: start;          /* contenido arriba aunque la tarjeta sea más alta */
+  gap: 0.75rem;
+  padding: 1.25rem;
+}
+
+.habilidad__icono { color: var(--accent); }
+.habilidad__titulo { font-size: 1rem; font-weight: 700; }
+
+.habilidad__lista {
+  display: grid;
+  gap: 0.375rem;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.habilidad__item { display: flex; justify-content: space-between; gap: 0.5rem; }
+.habilidad__usos { color: var(--text-muted); }

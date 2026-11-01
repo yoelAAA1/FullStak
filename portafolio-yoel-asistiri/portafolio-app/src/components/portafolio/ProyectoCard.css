@@ -1,0 +1,44 @@
+/* src/components/portafolio/ProyectoCard.css — tarjeta de un proyecto */
+.proyecto-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;              /* recorta la imagen con el borde redondeado */
+  transition: var(--transition);
+}
+.proyecto-card:hover {
+  transform: translateY(-4px);   /* "se levanta" al pasar el mouse */
+  box-shadow: 0 12px 32px -8px rgba(99, 102, 241, 0.25);
+}
+
+.proyecto-card__imagen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 9rem;
+  font-size: 3.75rem;            /* emoji grande */
+  background: linear-gradient(135deg, var(--bg-tertiary), #faf5ff);
+}
+
+.proyecto-card__cuerpo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;                       /* ocupa el alto sobrante: tarjetas de la misma fila iguales */
+  gap: 0.75rem;
+  padding: 1.25rem;
+}
+
+.proyecto-card__fila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.proyecto-card__titulo { font-size: 1.125rem; font-weight: 700; }
+.proyecto-card__titulo a:hover { color: var(--accent); }
+
+.proyecto-card__descripcion {
+  flex: 1;                       /* empuja las etiquetas al fondo de la tarjeta */
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}

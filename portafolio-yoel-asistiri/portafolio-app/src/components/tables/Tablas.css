@@ -1,0 +1,57 @@
+/* src/components/tables/Tablas.css — tablas y lista de mensajes del panel */
+
+/* En celular la tabla se desplaza dentro de su caja, no la página entera */
+.tabla-contenedor { overflow-x: auto; }
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;     /* une los bordes de las celdas en una sola línea */
+  font-size: 0.875rem;
+}
+
+.tabla th {
+  padding: 0.75rem 1rem;
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  font-weight: 600;
+  text-align: left;
+}
+
+.tabla td {
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.tabla__proyecto { display: flex; align-items: center; gap: 0.5rem; font-weight: 500; }
+.tabla__secundario { color: var(--text-secondary); }
+.tabla__acciones { display: flex; gap: 0.5rem; }
+
+/* ---------- Mensajes ---------- */
+.mensajes { overflow: hidden; }
+
+.mensaje {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* No leídos: fondo lila y nombre en negrita (selector descendiente) */
+.mensaje--nuevo { background: rgba(238, 242, 255, 0.6); }
+.mensaje--nuevo .mensaje__nombre { font-weight: 700; }
+
+.mensaje__cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.mensaje__nombre { font-weight: 500; }
+.mensaje__email { color: var(--accent); font-size: 0.875rem; }
+.mensaje__email:hover { text-decoration: underline; }
+.mensaje__fecha { color: var(--text-muted); font-size: 0.75rem; }
+.mensaje__texto { color: var(--text-secondary); font-size: 0.875rem; white-space: pre-line; } /* respeta saltos de línea */
+.mensaje__meta { color: var(--text-muted); font-size: 0.75rem; }

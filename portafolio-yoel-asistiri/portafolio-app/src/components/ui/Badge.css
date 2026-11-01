@@ -1,0 +1,15 @@
+/* src/components/ui/Badge.css — etiqueta pequeña con forma de píldora */
+.badge {
+  display: inline-block;
+  padding: 0.125rem 0.625rem;
+  border-radius: 999px;          /* número grande = bordes totalmente redondos */
+  background: var(--bg-hover);
+  color: #475569;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Un modificador por categoría: badge--frontend, badge--backend, badge--fullstack */
+.badge--frontend  { background: #e0f2fe; color: #0369a1; }
+.badge--backend   { background: #fef3c7; color: #b45309; }
+.badge--fullstack { background: #ede9fe; color: #6d28d9; }

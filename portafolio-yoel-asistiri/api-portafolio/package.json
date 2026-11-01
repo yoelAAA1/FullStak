@@ -1,0 +1,31 @@
+{
+  "name": "api-portafolio",
+  "version": "1.0.0",
+  "description": "API REST del portafolio de Yoel Americo Agner Asistiri (Node.js + Express + Prisma + PostgreSQL + Swagger)",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "db:migrate": "prisma migrate dev",
+    "db:generate": "prisma generate",
+    "db:seed": "prisma db seed",
+    "db:studio": "prisma studio"
+  },
+  "keywords": ["portafolio", "api", "express", "prisma", "postgresql"],
+  "author": "Yoel Americo Agner Asistiri",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.10.1",
+    "@prisma/client": "^7.10.1",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.8",
+    "express": "^5.3.0",
+    "swagger-jsdoc": "^6.3.0",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14",
+    "prisma": "^7.10.1"
+  }
+}

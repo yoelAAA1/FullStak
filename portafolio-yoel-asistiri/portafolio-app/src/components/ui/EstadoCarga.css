@@ -1,0 +1,17 @@
+/* src/components/ui/EstadoCarga.css — "Cargando...", error o lista vacía */
+.estado-carga {
+  display: grid;
+  justify-items: center;         /* centra ícono y texto */
+  gap: 0.75rem;
+  padding: 3rem 0;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* Parpadeo suave mientras carga */
+.estado-carga--cargando { animation: pulso 1.5s ease-in-out infinite; }
+
+@keyframes pulso {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.4; }
+}

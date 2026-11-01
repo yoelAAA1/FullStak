@@ -1,0 +1,45 @@
+/* src/components/ui/Modal.css — ventana emergente */
+.modal {
+  position: fixed;               /* fijo respecto a la ventana, aunque se haga scroll */
+  inset: 0;                      /* top, right, bottom y left en 0: cubre toda la pantalla */
+  z-index: 50;                   /* por encima del resto */
+  display: flex;
+  align-items: center;           /* caja centrada vertical */
+  justify-content: center;       /* y horizontalmente */
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.5); /* fondo oscuro semitransparente */
+}
+
+.modal__caja {
+  width: 100%;
+  max-width: 32rem;
+  max-height: 90vh;              /* nunca más alta que el 90% de la pantalla */
+  overflow-y: auto;              /* si el formulario es largo, se desplaza dentro */
+  background: var(--bg-secondary);
+  border-radius: var(--radius);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  animation: modalEntrada 0.2s ease-out; /* aparece con un pequeño zoom */
+}
+
+.modal__cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* título a la izquierda, X a la derecha */
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.modal__titulo { font-size: 1.125rem; font-weight: 600; }
+
+.modal__cerrar { border: none; background: none; color: var(--text-muted); cursor: pointer; }
+.modal__cerrar:hover { color: var(--text-primary); }
+
+.modal__cuerpo { padding: 1.25rem 1.5rem; }
+
+/* Separa el mensaje de error del formulario de abajo */
+.modal__cuerpo > .alerta { margin-bottom: 1rem; }
+
+@keyframes modalEntrada {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}

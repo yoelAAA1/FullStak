@@ -1,0 +1,21 @@
+/* src/pages/admin/LoginPage.css */
+.login {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 24rem;
+  margin-inline: auto;           /* centra la tarjeta horizontalmente */
+  padding: 2rem;
+}
+
+.login__cabecera { display: grid; justify-items: center; gap: 0.5rem; text-align: center; }
+.login__icono { color: var(--accent); }
+.login__titulo { font-size: 1.25rem; font-weight: 700; }
+.login__error { color: var(--danger); font-size: 0.875rem; }
+
+/* Solo los <code> DENTRO del login (un "code { }" suelto cambiaría todos los de la app) */
+.login code {
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  background: var(--bg-hover);
+  font-size: 0.85em;
+}

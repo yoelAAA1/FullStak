@@ -1,0 +1,38 @@
+/* src/components/ui/Button.css — bloque "btn" con modificadores (BEM: bloque--modificador) */
+.btn {
+  display: inline-flex;          /* ícono y texto en fila */
+  align-items: center;           /* centrados verticalmente */
+  justify-content: center;
+  gap: 0.5rem;                   /* espacio entre ícono y texto */
+  padding: 0.5rem 1rem;
+  border: 2px solid transparent; /* borde invisible: así todas las variantes miden igual */
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;               /* manito al pasar el mouse */
+  transition: var(--transition);
+}
+
+/* Botón deshabilitado: semitransparente y sin manito */
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ---- Variantes de color ---- */
+.btn--primary { background: var(--accent); color: #fff; }
+/* :hover:not(:disabled) → el efecto hover NO se aplica si está deshabilitado */
+.btn--primary:hover:not(:disabled) { background: var(--accent-hover); }
+
+.btn--danger { background: var(--danger); color: #fff; }
+.btn--danger:hover:not(:disabled) { background: var(--danger-hover); }
+
+.btn--ghost { background: var(--bg-hover); color: var(--text-primary); }
+.btn--ghost:hover:not(:disabled) { background: var(--border); }
+
+.btn--contorno { background: transparent; border-color: var(--accent); color: var(--accent); }
+.btn--contorno:hover { background: var(--bg-tertiary); }
+
+.btn--oscuro { background: #1e293b; color: #fff; }
+.btn--oscuro:hover { background: #0f172a; }
+
+/* ---- Variantes de tamaño ---- */
+.btn--grande { padding: 0.75rem 1.5rem; font-size: 1rem; }
+.btn--bloque { width: 100%; }

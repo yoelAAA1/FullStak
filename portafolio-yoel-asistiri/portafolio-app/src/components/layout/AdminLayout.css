@@ -1,0 +1,43 @@
+/* src/components/layout/AdminLayout.css — panel de administración */
+.admin { display: grid; gap: 1.5rem; }
+
+.admin__cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between; /* título a la izquierda, "Salir" a la derecha */
+  gap: 0.75rem;
+}
+
+.admin__titulo { font-size: 1.5rem; font-weight: 700; }
+
+/* Pestañas: el borde inferior de la activa se superpone al de la barra */
+.admin__pestanas {
+  display: flex;
+  gap: 0.25rem;
+  overflow-x: auto;              /* en celular se desplazan de lado */
+  border-bottom: 1px solid var(--border);
+}
+
+.admin__pestana {
+  margin-bottom: -1px;           /* tapa la línea de la barra */
+  padding: 0.5rem 1rem;
+  border-bottom: 2px solid transparent;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;           /* el texto no se parte en dos líneas */
+}
+.admin__pestana:hover { color: var(--text-primary); }
+.admin__pestana.active { border-color: var(--accent); color: var(--accent); }
+
+/* Contenido de cada pestaña: barra superior (contador + botón) y lista */
+.panel { display: grid; gap: 1rem; }
+
+.panel__barra {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}

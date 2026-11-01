@@ -1,0 +1,78 @@
+// prisma/schema.prisma — modelos de la base de datos del portafolio de Yoel
+// Cada "model" se convierte en una TABLA de PostgreSQL y cada línea en una COLUMNA.
+// Después de cambiar este archivo: npx prisma migrate dev  y  npx prisma generate
+
+// Generador: qué cliente crea "npx prisma generate"
+generator client {
+  // prisma-client-js = el cliente clásico que se importa con require('@prisma/client')
+  provider = "prisma-client-js"
+}
+
+// Fuente de datos: qué motor de base de datos usamos
+datasource db {
+  // PostgreSQL (la URL de conexión está en prisma.config.ts → DATABASE_URL)
+  provider = "postgresql"
+}
+
+// ---------------------------------------------------------------
+// Tabla "proyectos": las tarjetas de la sección Proyectos
+// ---------------------------------------------------------------
+model Proyecto {
+  id            Int          @id @default(autoincrement()) // clave primaria: 1, 2, 3... automática
+  titulo        String                                     // texto obligatorio
+  descripcion   String                                     // texto obligatorio
+  emoji         String       @default("💻")                // si no se envía, usa 💻
+  categoria     Categoria                                  // solo FRONTEND, BACKEND o FULLSTACK (enum de abajo)
+  urlDemo       String?                                    // el "?" significa OPCIONAL (puede ser NULL)
+  urlRepo       String?                                    // opcional
+  destacado     Boolean      @default(false)               // aparece en la portada si es true
+  creadoEn      DateTime     @default(now())               // fecha de creación automática
+  actualizadoEn DateTime     @updatedAt                    // Prisma la actualiza en cada UPDATE
+  tecnologias   Tecnologia[]                               // relación MUCHOS A MUCHOS con Tecnologia
+
+  @@map("proyectos") // nombre real de la tabla en PostgreSQL
+}
+
+// ---------------------------------------------------------------
+// Tabla "tecnologias": sección Habilidades y etiquetas de cada proyecto
+// ---------------------------------------------------------------
+model Tecnologia {
+  id        Int            @id @default(autoincrement()) // clave primaria
+  nombre    String         @unique                       // no se puede repetir (React solo una vez)
+  area      AreaTecnologia                               // FRONTEND, BACKEND, BASE_DATOS o HERRAMIENTA
+  proyectos Proyecto[]                                   // el otro lado de la relación muchos a muchos
+
+  @@map("tecnologias")
+}
+// Prisma crea sola la tabla intermedia "_ProyectoToTecnologia" (columnas A = proyecto, B = tecnología)
+
+// ---------------------------------------------------------------
+// Tabla "mensajes": lo que envían los visitantes en el formulario de contacto
+// ---------------------------------------------------------------
+model Mensaje {
+  id          Int       @id @default(autoincrement()) // clave primaria
+  nombre      String                                  // nombre del visitante
+  email       String                                  // correo del visitante
+  servicio    String?                                 // opcional: tipo de servicio
+  presupuesto Int?                                    // opcional: número entero
+  fecha       DateTime? @db.Date                      // opcional: solo fecha (sin hora) en PostgreSQL
+  mensaje     String                                  // texto del mensaje
+  leido       Boolean   @default(false)               // el admin lo marca como leído
+  creadoEn    DateTime  @default(now())               // fecha en que llegó
+
+  @@map("mensajes")
+}
+
+// Enum = lista cerrada de valores permitidos (PostgreSQL crea un tipo propio)
+enum Categoria {
+  FRONTEND
+  BACKEND
+  FULLSTACK
+}
+
+enum AreaTecnologia {
+  FRONTEND
+  BACKEND
+  BASE_DATOS
+  HERRAMIENTA
+}

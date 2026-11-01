@@ -1,0 +1,11 @@
+/* src/pages/NotFoundPage.css — página 404 */
+.no-encontrado {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  padding-block: 5rem;
+  text-align: center;
+}
+
+.no-encontrado__codigo { color: #c7d2fe; font-size: 3.75rem; font-weight: 800; line-height: 1; }
+.no-encontrado__titulo { font-size: 1.25rem; font-weight: 600; }

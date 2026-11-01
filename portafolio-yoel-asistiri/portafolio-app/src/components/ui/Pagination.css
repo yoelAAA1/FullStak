@@ -1,0 +1,40 @@
+/* src/components/ui/Pagination.css — barra de paginación de las tablas */
+.paginacion {
+  display: flex;
+  flex-wrap: wrap;               /* en celular, los botones bajan de línea */
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.paginacion__info { display: flex; align-items: center; gap: 0.75rem; }
+
+.paginacion__select {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-secondary);
+}
+
+.paginacion__botones { display: flex; gap: 0.25rem; }
+
+.paginacion__boton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  cursor: pointer;
+}
+.paginacion__boton:hover:not(:disabled) { background: var(--bg-hover); }
+.paginacion__boton:disabled { opacity: 0.3; cursor: not-allowed; }
+
+/* aria-current="page" marca la página actual: usamos el mismo atributo para el estilo */
+.paginacion__boton[aria-current='page'] { background: var(--accent); color: #fff; }
